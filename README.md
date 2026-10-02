@@ -118,7 +118,7 @@ The official release binary is built using Nuitka to translate the Python codeba
 Run the compilation command from the repository root:
 
 ```cmd
-python -m nuitka --mode=onefile --enable-plugin=tk-inter --windows-console-mode=disable --windows-icon-from-ico=icon.ico --assume-yes-for-downloads --output-filename=DupSweep-v1.0.0-windows-x64.exe dupsweep.py
+python -m nuitka --mode=onefile --enable-plugin=tk-inter --windows-console-mode=disable --windows-icon-from-ico=icon.ico --include-data-files=icon.ico=icon.ico --assume-yes-for-downloads DupSweep.py
 ```
 
 ### Build Parameters Explained
