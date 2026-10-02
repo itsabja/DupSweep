@@ -1,0 +1,3 @@
+# This project uses Python Standard Library only.
+# No external pip dependencies required!
+# Python 3.8+ recommended.
