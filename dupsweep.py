@@ -28,8 +28,12 @@ class DupSweepApp(tk.Tk):
     def __init__(self):
         super().__init__()
         self.title(APP_TITLE)
-        if os.path.exists("icon.ico"):
-            self.iconbitmap("icon.ico")
+
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        icon_path = os.path.join(base_dir, "icon.ico")
+        if os.path.exists(icon_path):
+            self.iconbitmap(icon_path)
+
         self.geometry("860x650")
         self.minsize(780, 580)
         self.configure(bg=BG_CANVAS)
