@@ -1,10 +1,23 @@
+<p align="center">
+  <img src="assets/logo.png" alt="DupSweep Logo" width="140" height="140" />
+</p>
+
 # DupSweep
+
+[![Release](https://img.shields.io/github/v/release/itsabja/DupSweep?color=18181B&style=flat-square)](https://github.com/itsabja/DupSweep/releases)
+[![Platform](https://img.shields.io/badge/platform-Windows%20x64-18181B?style=flat-square)](https://github.com/itsabja/DupSweep/releases)
+[![Python](https://img.shields.io/badge/python-3.8+-18181B?style=flat-square)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-MIT-18181B?style=flat-square)](LICENSE)
 
 DupSweep is a high-performance desktop utility designed for deterministic duplicate file detection, selective filtering, and manual inspection. It provides granular control over how file equality is established—from rapid file-size matching to cryptographic content hashing—wrapped in a responsive, non-blocking interface.
 
 The project is built entirely on the Python standard library with zero external runtime dependencies and can be compiled into a standalone, native Windows executable.
 
----
+<p align="center">
+  <img src="assets/Screenshot1.jpg" width="32%" alt="Screenshot1" />
+  <img src="assets/Screenshot2.jpg" width="32%" alt="Screenshot2" />
+  <img src="assets/Screenshot3.jpg" width="32%" alt="Screenshot3" />
+</p>
 
 ## Distribution
 
@@ -18,8 +31,6 @@ For end users and deployment environments without an existing Python runtime, it
    DupSweep-v1.0.0-windows-x64.exe
    ```
 3. Run the executable directly. No installer, elevated privileges, or runtime packages are required.
-
----
 
 ## Technical Overview
 
@@ -63,8 +74,6 @@ The detection architecture executes across three segregated stages:
 - **Background Worker Threads**: Heavy I/O workloads (directory indexing and hashing passes) run within isolated daemon threads, preventing UI lockups and keeping the Tkinter event loop responsive.
 - **Safe Explorer Integration**: Explorer interaction isolates file paths using explicit parameter passing to avoid shell parsing vulnerabilities.
 
----
-
 ## Source Execution
 
 ### System Requirements
@@ -90,8 +99,6 @@ The detection architecture executes across three segregated stages:
    ```cmd
    python dupsweep.py
    ```
-
----
 
 ## Compilation from Source
 
@@ -127,22 +134,16 @@ python -m nuitka --mode=onefile --enable-plugin=tk-inter --windows-console-mode=
 
 Upon completion, the compiled file `DupSweep-v1.0.0-windows-x64.exe` will be located in the working directory.
 
----
-
 ## Security and System Operation Details
 
 - **Read-Only Inspection**: Directory evaluation and hashing passes operate under standard read access without writing lock markers or temporary cache indices to target directories.
 - **Safe Explorer Revealing**: Explorer selection uses direct subprocess argument lists rather than interpolated shell strings, ensuring reliability with special characters and spaces.
 - **Explicit Deletion Handlers**: File removals invoke `os.remove()` exclusively upon explicit modal confirmation. System and file-access errors are captured to prevent application termination when files are locked by external processes.
 
----
-
 ## Maintainer
 
 - **Abolfazl Jamali (its.abja)**
 - Profile: [https://github.com/itsabja](https://github.com/itsabja)
-
----
 
 ## License
 
